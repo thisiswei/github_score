@@ -13,7 +13,7 @@ module Github
       records = JSON.parse get username
       records.each do |hash|
         uniq_id = Digest::MD5.hexdigest Marshal.dump(hash)
-        hash[uniq_id] = uniq_id
+        hash['uniq_id'] = uniq_id
       end
       records
     end

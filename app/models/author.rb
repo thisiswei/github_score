@@ -1,11 +1,11 @@
-require 'github/client'
+require 'client'
 
 class Author < ActiveRecord::Base
   has_many :events
 
-  def self.import name, klass = ::Github::Client
+  def self.import name 
     
-    records = klass.fetch name
+    records = Github::Client.fetch name
     author  = Author.find_or_create_by_name name
 
     records.each do |record|
@@ -16,7 +16,7 @@ class Author < ActiveRecord::Base
       end
     end
 
-    actor 
+    author 
   end
 
   def score

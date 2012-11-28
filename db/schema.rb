@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121128034418) do
+ActiveRecord::Schema.define(:version => 20121128044859) do
 
   create_table "authors", :force => true do |t|
     t.string   "name"
@@ -21,7 +21,7 @@ ActiveRecord::Schema.define(:version => 20121128034418) do
 
   create_table "events", :force => true do |t|
     t.string   "uniq_id"
-    t.string   "type"
+    t.string   "kind"
     t.integer  "author_id"
     t.text     "data"
     t.datetime "github_created_at"

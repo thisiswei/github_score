@@ -1,7 +1,8 @@
 require 'client'
 class Event < ActiveRecord::Base
-  attr_accessible :uniq_id
+  attr_accessible :uniq_id, :kind, :author, :data, :github_created_at
   validates_uniqueness_of :uniq_id
+  validates_presence_of :data, :github_created_at, :author, :kind
   belongs_to :author
 
   SCORES = { 
@@ -19,7 +20,7 @@ class Event < ActiveRecord::Base
     record['uniq_id'].force_encoding 'UTF-8'
 
     params = {
-      type: record['type'],
+      kind: record['type'],
       author: author,
       data: [Marshal.dump(record)].pack('m'),
       github_created_at: record['created_at'],
@@ -29,7 +30,7 @@ class Event < ActiveRecord::Base
   end
 
   def score
-    SCORES.fetch(type) {0}  #return 0 if type not found.
+    SCORES.fetch(kind) {0}  #return 0 if type not found.
   end
 
 
