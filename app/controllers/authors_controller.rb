@@ -1,6 +1,6 @@
 class AuthorsController < ApplicationController
   def index
-    @authors = Author.includes(:events).order
+    @authors = Author.includes(:events).order('created_at DESC')
     @author = Author.new
   end
 
