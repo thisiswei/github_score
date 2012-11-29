@@ -9,9 +9,9 @@ class AuthorsController < ApplicationController
     name = params[:author][:name]
     new_author = Author.import name
     if new_author
-      redirect_to  'index'
+      redirect_to  root_path
     else
-      redirect_to  'index' ,notice: 'user not exist'
+      redirect_to  root_path ,notice: 'user not exist'
     end
 
   end
