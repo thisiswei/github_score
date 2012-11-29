@@ -1,0 +1,46 @@
+<div class='content'>
+  <div class='form'>
+    <%= form_for @author do |f| %>
+      <%= f.label :name, 'github name' %>
+    <%= f.text_field :name %>
+    <%= f.submit 'get score' %>
+  <% end %> 
+  </div>
+  <hr> 
+
+  <p> folks who been scored </p>
+  <div class='authors'>
+    <ul>
+      <div class="authors_name">
+        <% @authors.each do |author| %>
+            <li>
+              <%= link_to image_tag(gravatar(author)),"http://github.com/#{author.name}" %>
+              <span class='point'><%= author.score %> points</span>
+            </li>
+        <% end %>
+      </div>
+    </ul>
+  </div> 
+
+
+  <div class='about'>
+    <p> what the heck? </p>
+    <pre>
+    SCORES = {
+    'CommitCommentEvent' => 2,
+    'IssueCommentEvent'  => 2,
+    'IssuesEvent'        => 3,
+    'WatchEvent'         => 1,
+    'PullRequestEvent'   => 5,
+    'PushEvent'          => 6,
+    'FollowEvent'        => 1,
+    'CreateEvent'        => 3,
+     }
+    </pre>
+    <div class="source">
+      <p> source <%= link_to 'code','https://github.com/thisiswei/github_score' %> </p>
+    </div>
+
+  </div>
+</div>
+

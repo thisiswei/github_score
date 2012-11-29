@@ -1,12 +1,13 @@
 require 'client'
 
 class Author < ActiveRecord::Base
+  attr_accessible :gravatar_id
   has_many :events
-
   def self.import name 
     
     records = Github::Client.fetch name
     author  = Author.find_or_create_by_name name
+    author.update_attributes(gravatar_id: records.first['actor_attributes']['gravatar_id'])
 
     records.each do |record|
       begin
