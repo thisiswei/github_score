@@ -1,7 +1,7 @@
 require 'client'
 class Event < ActiveRecord::Base
   attr_accessible :uniq_id, :kind, :author, :data, :github_created_at
-  validates_uniqueness_of :uniq_id
+  validates_uniqueness_of :uniq_id, :github_created_at
   validates_presence_of :data, :github_created_at, :author, :kind
   belongs_to :author
 
