@@ -2,6 +2,7 @@ require 'client'
 
 class Author < ActiveRecord::Base
   attr_accessible :gravatar_id
+  validates_uniqueness_of :name , :case_sensitive => false
   has_many :events
   def self.import name 
     
