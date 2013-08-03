@@ -11,17 +11,21 @@
  *= require_self
  *= require_tree .
  */
-body{
+body{                           
     background-color: #eaeaea;
     font-family: verdana ;
     text-align: center;
 
 }
-ul,li{
+ul li{
   list-style-type: none;
+  float: left;
+  width: 100px;
 }
 
-.authors_name{
+.authors .name{
+    width: 120px;
+    float: left;
     background-color: rgba(254, 254, 254, 0.35);
     margin: 20px 0px 0px 0px;
 }
@@ -37,6 +41,7 @@ p,h3{
 }
 .about{
     margin: 100px 0px 0px 0px;
+    font-style: italic;
 }
 .source, .source p{
     background-color: #ffe4c4;

@@ -2,6 +2,8 @@ source 'https://rubygems.org'
 
 gem 'rails', '3.2.9'
 gem 'thin'
+gem "taps", "~> 0.3.24"  
+gem 'newrelic_rpm'
 
 group :development do
   gem 'sqlite3'
